@@ -7,18 +7,27 @@ function getRandomColor() {
   return color;
 }
 
-let cellSize = prompt("square size?");
+//let cellSize = prompt("square size?");
 let grid = document.querySelector("#grid");
-let i, j;
-for (i = 0; i < 9; i++)
+grid.style.backgroundColor = "#fff";
+let gridHeight = grid.offsetHeight;
+let gridWidth = grid.offsetWidth;
+//let cellSize = (grid.offsetWidth - 2) / 10;
+let cellSize = 50;
+
+let i = 0;
+let max = gridWidth * gridHeight / (cellSize ** 2);
+console.log(gridWidth + " " + gridHeight + " " + max);
+
+for (i = 0; i < max; i++)
   {
-    grid.style.width = 3*cellSize + "px";
-    grid.style.height = 3*cellSize + "px";
+    //grid.style.width = 3*cellSize + "px";
+    //grid.style.height = 3*cellSize + "px";
     let cell = document.createElement("div");
     cell.className = "cell";
     cell.style.backgroundColor = getRandomColor();
     cell.style.width = cellSize + "px";
     cell.style.height = cellSize + "px";
     grid.appendChild(cell);
-    console.log(`${i}, ${j}`);
+    console.log(`${i}`);
   }

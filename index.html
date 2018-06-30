@@ -1,19 +1,27 @@
 <!DOCTYPE html>
 <html>
   <head>
-      <link rel="icon" href="favicon.ico" type="image/icon">
-      <link rel="stylesheet" href="styles.css" type="text/css">
+      <link rel="icon" href="images/favicon.ico" type="image/icon">
+      <link rel="stylesheet" href="css/styles.css" type="text/css">
 
       <title>Sketchpad</title>
   </head>
   <body>
-    <form>
-      Canvas size
-      <input type="number" name="canvas-size" min="1" max="50">
-    </form>
-    <form></form>
+    <div id="sidebar">
+      <form>
+        Canvas size
+        <input class="settings-form" type="number" name="canvas-size" min="1">
+      </form>
+      <form>
+        Square size
+        <input class="settings-form" type="number" name="square-size" min="1">
+      </form>
+      <form></form>
+      <input class="create-grid-button" type="button" value="Create canvas">
+    </div>
 
     <div id="grid"></div>
-    <script src="script.js"></script>
+
   </body>
+  <script src="scripts/script.js"></script>
 </html>

@@ -1,3 +1,54 @@
+#grid{
+  margin-left: 300px; /*width of the sidebar*/
+  height: 100%;
+  width: calc(100% - 290px);
+}
 .cell{
   float: left;
+  border-style: solid;
+  border-width: 0px;
+}
+
+#sidebar{
+  height: 100%;
+  width: 300px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #232323;
+  padding-top: 20px;
+  color: #999999;
+}
+
+.create-grid-button{
+  border: 1px solid #4285f4;
+  height: 30px;
+  padding: 0 12px;
+  background: #4285f4;
+  border-radius: 2px;
+  text-decoration: none;
+  color: #fff;
+  display: inline-block;
+	font-weight: bold;
+	line-height: 28px;
+  float: right;
+  font-family: arial,sans-serif;
+  font-size: 11pt;
+}
+
+.settings-form{
+  background-color: #fff;
+  margin-top: 13px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50px;
+  vertical-align: top;
+  border-radius: 2px;
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.16), 0 0 0 1px rgba(0,0,0,0.08);
+  height: 26px;
+  border: 1px;
+  /*line-height: 34px;*/
+  font-family: arial, sans-serif;
+  font-size: 13pt;
+  padding-left: 5px;
 }
