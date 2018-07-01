@@ -108,6 +108,12 @@
   border-radius: 100px;
   text-align: center;
   font: bold 13pt arial;
+  -webkit-transition: transform .5s;
+}
+
+#pen-color:hover + #pen-color-wrapper{
+
+  transform: scale(1.1);
 }
 
 #pen-color-wrapper span {
