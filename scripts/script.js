@@ -68,6 +68,17 @@ function getCellColor(div)
     return penColor;
 }
 
+let colorPicker = document.querySelector("#pen-color");
+let colorPickerWrapper = document.querySelector("#pen-color-wrapper");
+colorPicker.offsetWidth = colorPickerWrapper.offsetWidth + "px";
+console.log("cpw: " + colorPickerWrapper.offsetWidth);
+console.log("cph: " + colorPickerWrapper.offsetHeight);
+colorPicker.offsetHeight = colorPickerWrapper.offsetHeight + "px";
+colorPickerWrapper.style.backgroundColor = colorPicker.value;
+colorPicker.onchange = function(){
+  colorPickerWrapper.style.backgroundColor = colorPicker.value;
+}
+
 let grid = document.querySelector("#grid");
 grid.style.backgroundColor = "#fff";
 let gridHeight = grid.offsetHeight;

@@ -8,17 +8,43 @@
   </head>
   <body>
     <div id="sidebar">
+
       <form>
         Canvas size
         <input class="settings-form" type="number" name="canvas-size" min="1">
       </form>
+
       <form>
         Square size
         <input class="settings-form" type="number" name="square-size" min="1">
       </form>
-      <form></form>
+
+      <form>
+        Intensity
+        <input class="settings-form" type="number" name="square-size" min="1">
+      </form>
+
       <input class="create-grid-button" type="button" value="Create canvas">
+
+      <label class="container">Random pen color
+        <input type="checkbox" checked="checked">
+        <span class="checkmark"></span>
+      </label>
+
+      <label class="container">Transparent
+        <input type="checkbox">
+        <span class="checkmark"></span>
+      </label>
+
+
+          <label> Select pen color:</label>
+          <input type="color" id="pen-color" value="#8eb4be">
+          <div id="pen-color-wrapper"></div>
+
     </div>
+
+</label>
+
 
     <div id="grid"></div>
 
