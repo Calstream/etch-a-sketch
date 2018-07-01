@@ -67,16 +67,20 @@ function getCellColor(div)
   else
     return penColor;
 }
-
-let colorPicker = document.querySelector("#pen-color");
-let colorPickerWrapper = document.querySelector("#pen-color-wrapper");
-colorPicker.offsetWidth = colorPickerWrapper.offsetWidth + "px";
-console.log("cpw: " + colorPickerWrapper.offsetWidth);
-console.log("cph: " + colorPickerWrapper.offsetHeight);
-colorPicker.offsetHeight = colorPickerWrapper.offsetHeight + "px";
-colorPickerWrapper.style.backgroundColor = colorPicker.value;
-colorPicker.onchange = function(){
+function colorPickerInit(){
+  let colorPicker = document.querySelector("#pen-color");
+  let colorPickerWrapper = document.querySelector("#pen-color-wrapper");
+  colorPicker.style.width = colorPickerWrapper.offsetWidth + "px";
+  colorPicker.style.height = colorPickerWrapper.offsetHeight + "px";
+  let rect = colorPickerWrapper.getBoundingClientRect();
+  colorPicker.style.top = rect.top + "px";
+  colorPicker.style.left = rect.left + "px";
   colorPickerWrapper.style.backgroundColor = colorPicker.value;
+  let hexTxt = document.querySelector("#hex-txt");
+  colorPicker.onchange = function(){
+    colorPickerWrapper.style.backgroundColor = colorPicker.value;
+    hexTxt.textContent = colorPicker.value.toUpperCase();
+  }
 }
 
 let grid = document.querySelector("#grid");
@@ -103,3 +107,5 @@ for (i = 0; i < 608; i++)
       this.style.backgroundColor = getCellColor(this); }
     grid.appendChild(cell);
   }
+
+colorPickerInit();

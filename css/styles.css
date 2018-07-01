@@ -90,15 +90,11 @@
 }
 
 #pen-color{
-  height: 73px;
-  width: 73px;
   border-style: none;
   padding: 0px;
   opacity: 0;
   z-index: 3;
   position: absolute;
-  top: 300px;
-  left: 100px;
   border-radius: 100px;
 }
 
@@ -110,6 +106,25 @@
   top: 300px;
   left: 100px;
   border-radius: 100px;
+  text-align: center;
+  font: bold 13pt arial;
+}
+
+#pen-color-wrapper span {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -ms-transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+#color-txt{
+  font: bold 9pt arial;
+}
+
+#hex-txt{
+  font: bold 13pt arial;
 }
 
 .create-grid-button{
