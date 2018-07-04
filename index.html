@@ -8,62 +8,45 @@
   </head>
   <body>
     <div id="sidebar">
-
-
-
-      <form>
-        <input class="settings-form" id="square-size-cb" type="number" name="square-size" min="1" placeholder="Square size">
-        <label for="square-size-cb"> SQUARE SIZE </label>
-      </form>
-
-      <br>
-
-      <input class="create-grid-button" type="button" value="New">
-      <input class="create-grid-button" type="button" value="Clear">
+      <div id="create">
+        <input id="square-size-cb" type="number" name="square-size" min="1" placeholder="Square size">
+        <input class="create-grid-button" type="button" value="New">
+        <input class="create-grid-button" type="button" value="Clear">
+      </div>
 
       <hr>
 
+      <div id="settings">
+        <div class="cb" id="rc">
+          <input type="checkbox">
+        </div>
+        <label for="rc">RANDOM COLOR</label>
+        <br>
+        <div class="cb" id="st">
+          <input type="checkbox">
+        </div>
+        <label for="st">SEMI-TRANSPARENT</label>
+        <div id="intensity">
+          INTENSITY(%)
+          <input class="settings-form" type="number" name="square-size" min="0" max="100">
+        </div>
 
+        <hr>
 
-
-
-      <div class="cb" id="rc">
-        <input type="checkbox">
+        <input type="color" id="pen-color" value="#BADA55">
+        <div id="pen-color-wrapper">
+          <span>
+            <div id="color-txt">
+              PEN COLOR
+            </div>
+            <div id="hex-txt">
+              #BADA55
+            </div>
+          </span>
+        </div>
       </div>
-      <label for="rc">RANDOM COLOR</label>
-
-      <div class="cb" id="st">
-        <input type="checkbox">
-      </div>
-      <label for="st">SEMI-TRANSPARENT</label>
-
-      <form>
-        INTENSITY(%)
-        <input class="settings-form" type="number" name="square-size" min="0" max="100">
-      </form>
-
-      <hr>
-
-          <label> </label>
-          <input type="color" id="pen-color" value="#BADA55">
-          <div id="pen-color-wrapper">
-             <span>
-               <div id="color-txt">
-                 PEN COLOR
-               </div>
-               <div id="hex-txt">
-               #BADA55
-             </div>
-             </span>
-           </div>
-
     </div>
-
-</label>
-
-
     <div id="grid"></div>
-
   </body>
   <script src="scripts/script.js"></script>
 </html>
