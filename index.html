@@ -19,17 +19,17 @@
 
       <div id="settings">
         <div class="cb" id="rc">
-          <input type="checkbox">
+          <input type="checkbox" id="randomCB" onclick="randomCB();">
         </div>
         <label for="rc">RANDOM COLOR</label>
         <br>
         <div class="cb" id="st">
-          <input type="checkbox">
+          <input type="checkbox" id="intensityCB" onclick="intensityCB();">
         </div>
         <label for="st">SEMI-TRANSPARENT</label>
         <div id="intensity">
           INTENSITY(%)
-          <input class="settings-form" type="number" name="square-size" min="0" max="100" value="10">
+          <input id="intensity-form" type="number" name="square-size" min="0" max="100" value="30">
         </div>
 
         <hr>

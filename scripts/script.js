@@ -1,9 +1,10 @@
 let penColor = "#BADA55";
 let randomColor = false;
 let gradual = false;
-let intensity = 0.1; //percent;
+let intensity = 0.3;
 
-function getRandomColor() {
+function getRandomColor()
+{
   var letters = '0123456789ABCDEF';
   var color = '#';
   for (var i = 0; i < 6; i++) {
@@ -67,7 +68,9 @@ function getCellColor(div)
   else
     return penColor;
 }
-function colorPickerInit(){
+
+function colorPickerInit()
+{
   let colorPicker = document.querySelector("#pen-color");
   let colorPickerWrapper = document.querySelector("#pen-color-wrapper");
   colorPicker.style.width = colorPickerWrapper.offsetWidth + "px";
@@ -80,32 +83,65 @@ function colorPickerInit(){
   colorPicker.onchange = function(){
     colorPickerWrapper.style.backgroundColor = colorPicker.value;
     hexTxt.textContent = colorPicker.value.toUpperCase();
+    penColor = colorPicker.value.toUpperCase();
   }
 }
 
-let grid = document.querySelector("#grid");
-grid.style.backgroundColor = "#fff";
-let gridHeight = grid.getBoundingClientRect().height;
-let gridWidth = grid.offsetWidth;
-//let cellSize = (grid.offsetWidth - 2) / 10;
-let cellSize = 50;
+function createGrid()
+{
+  let grid = document.querySelector("#grid");
+  grid.style.backgroundColor = "#fff";
+  let gridHeight = grid.getBoundingClientRect().height;
+  let gridWidth = grid.offsetWidth;
+  //let cellSize = (grid.offsetWidth - 2) / 10;
+  let cellSize = 50;
 
-let i = 0;
-let max = gridWidth * gridHeight / (cellSize ** 2);
-console.log("w: "+gridWidth + " h: " + gridHeight + " max: " + max);
+  let i = 0;
+  let max = gridWidth * gridHeight / (cellSize ** 2);
+  console.log("w: "+gridWidth + " h: " + gridHeight + " max: " + max);
 
-for (i = 0; i < 608; i++)
-  {
-    //grid.style.width = 3*cellSize + "px";
-    //grid.style.height = 3*cellSize + "px";
-    let cell = document.createElement("div");
-    cell.className = "cell";
-    cell.style.backgroundColor = getRandomColor();
-    cell.style.width = cellSize + "px";
-    cell.style.height = cellSize + "px";
-    cell.onmouseover = function() {
-      this.style.backgroundColor = getCellColor(this); }
-    grid.appendChild(cell);
-  }
+  for (i = 0; i < 608; i++)
+    {
+      //grid.style.width = 3*cellSize + "px";
+      //grid.style.height = 3*cellSize + "px";
+      let cell = document.createElement("div");
+      cell.className = "cell";
+      //cell.style.backgroundColor = getRandomColor();
+      cell.style.backgroundColor = "#fff";
+      cell.style.width = cellSize + "px";
+      cell.style.height = cellSize + "px";
+      cell.onmouseover = function() {
+        this.style.backgroundColor = getCellColor(this); }
+      grid.appendChild(cell);
+    }
+}
 
+function settingsInit()
+{
+    let intensityVal = document.querySelector("#intensity-form");
+
+    intensityVal.onchange = function(){
+      intensity = intensityVal.value / 100;
+      console.log("die");
+    }
+}
+
+function randomCB()
+{
+  let randColor = document.querySelector("#randomCB");
+  if (randColor.checked)
+    randomColor = true;
+  else randomColor = false;
+}
+
+function intensityCB()
+{
+  let transparent = document.querySelector("#intensityCB");
+  if (transparent.checked)
+    gradual = true;
+  else gradual = false;
+}
+
+settingsInit();
 colorPickerInit();
+createGrid();
