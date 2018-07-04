@@ -1,4 +1,4 @@
-let penColor = "#000000";
+let penColor = "#BADA55";
 let randomColor = false;
 let gradual = false;
 let intensity = 0.1; //percent;
