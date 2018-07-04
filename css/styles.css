@@ -20,6 +20,22 @@ font: bold 11pt arial;
 
 .settings-form{
   margin-left: 90px;
+  height: 20px;
+}
+
+#square-size-cb{
+  height: 25px;
+  width: 200px;
+  position: absolute;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+input[type="button"]
+{
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-top: 40px;
 }
 
 /*
@@ -41,8 +57,6 @@ font: bold 11pt arial;
 
 input[type="number"]
 {
-  /height: 30px;*
-  width: 100px;
   background: #c6c6c6;
   box-shadow: inset 0 0 5px rgba(0,0,0,.2);
   opacity: .7;
