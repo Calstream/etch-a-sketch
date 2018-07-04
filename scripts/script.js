@@ -1,6 +1,6 @@
 let penColor = "#000000";
 let randomColor = false;
-let gradual = true;
+let gradual = false;
 let intensity = 0.1; //percent;
 
 function getRandomColor() {
@@ -85,14 +85,14 @@ function colorPickerInit(){
 
 let grid = document.querySelector("#grid");
 grid.style.backgroundColor = "#fff";
-let gridHeight = grid.offsetHeight;
+let gridHeight = grid.getBoundingClientRect().height;
 let gridWidth = grid.offsetWidth;
 //let cellSize = (grid.offsetWidth - 2) / 10;
 let cellSize = 50;
 
 let i = 0;
 let max = gridWidth * gridHeight / (cellSize ** 2);
-console.log(gridWidth + " " + gridHeight + " " + max);
+console.log("w: "+gridWidth + " h: " + gridHeight + " max: " + max);
 
 for (i = 0; i < 608; i++)
   {

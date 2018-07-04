@@ -9,33 +9,40 @@
   <body>
     <div id="sidebar">
 
-      <form>
-        Canvas size
-        <input class="settings-form" type="number" name="canvas-size" min="1">
-      </form>
+
 
       <form>
-        Square size
-        <input class="settings-form" type="number" name="square-size" min="1">
+        <input class="settings-form" id="square-size-cb" type="number" name="square-size" min="1" placeholder="Square size">
+        <label for="square-size-cb"> SQUARE SIZE </label>
       </form>
 
-      <form>
-        Intensity
-        <input class="settings-form" type="number" name="square-size" min="1">
-      </form>
+      <br>
 
-      <input class="create-grid-button" type="button" value="Create canvas">
+      <input class="create-grid-button" type="button" value="New">
+      <input class="create-grid-button" type="button" value="Clear">
 
-      <label class="container">Random pen color
-        <input type="checkbox" checked="checked">
-        <span class="checkmark"></span>
-      </label>
+      <hr>
 
-      <label class="container">Transparent
+
+
+
+
+      <div class="cb" id="rc">
         <input type="checkbox">
-        <span class="checkmark"></span>
-      </label>
+      </div>
+      <label for="rc">RANDOM COLOR</label>
 
+      <div class="cb" id="st">
+        <input type="checkbox">
+      </div>
+      <label for="st">SEMI-TRANSPARENT</label>
+
+      <form>
+        INTENSITY(%)
+        <input class="settings-form" type="number" name="square-size" min="0" max="100">
+      </form>
+
+      <hr>
 
           <label> </label>
           <input type="color" id="pen-color" value="#BADA55">
