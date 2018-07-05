@@ -92,23 +92,17 @@ function createGrid(_cellSize)
 {
   let grid = document.querySelector("#grid");
   grid.innerHTML = '';
-  //grid.style.backgroundColor = "#fff";
   let gridHeight = grid.getBoundingClientRect().height;
   let gridWidth = grid.offsetWidth;
-  //let cellSize = (grid.offsetWidth - 2) / 10;
 
   let i = 0;
-  let max = gridWidth * gridHeight / (_cellSize ** 2);
+  let max = Math.floor(gridWidth / _cellSize) * Math.floor(gridHeight / _cellSize);
   console.log("w: "+gridWidth + " h: " + gridHeight + " max: " + max);
 
   for (i = 0; i < max; i++)
     {
-      //grid.style.width = 3*cellSize + "px";
-      //grid.style.height = 3*cellSize + "px";
       let cell = document.createElement("div");
       cell.className = "cell";
-      //cell.style.backgroundColor = getRandomColor();
-      //cell.style.backgroundColor = "#fff";
       cell.style.width = _cellSize + "px";
       cell.style.height = _cellSize + "px";
       cell.onmouseover = function() {
@@ -121,11 +115,21 @@ function settingsInit()
 {
     let intensityVal = document.querySelector("#intensity-form");
     intensityVal.onchange = function(){
+      if (intensityVal.value < 0 || intensityVal.value > 100)
+        {
+          alert("Invalid intensity value (must be 0-100)");
+          return;
+        }
       intensity = intensityVal.value / 100;
     }
 
     let cellSizeVal = document.querySelector("#square-size-cb");
     cellSizeVal.onchange = function(){
+      if (cellSizeVal.value <= 0 )
+        {
+          alert("Invalid cell size value (must be >0)");
+          return;
+        }
       cellSize_prev = cellSize;
       cellSize = cellSizeVal.value;
       console.log("die");
