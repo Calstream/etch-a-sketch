@@ -2,7 +2,8 @@ let penColor = "#BADA55";
 let randomColor = false;
 let gradual = false;
 let intensity = 0.3;
-
+let cellSize = 50;
+let cellSize_prev = 50;
 function getRandomColor()
 {
   var letters = '0123456789ABCDEF';
@@ -87,29 +88,29 @@ function colorPickerInit()
   }
 }
 
-function createGrid()
+function createGrid(_cellSize)
 {
   let grid = document.querySelector("#grid");
-  grid.style.backgroundColor = "#fff";
+  grid.innerHTML = '';
+  //grid.style.backgroundColor = "#fff";
   let gridHeight = grid.getBoundingClientRect().height;
   let gridWidth = grid.offsetWidth;
   //let cellSize = (grid.offsetWidth - 2) / 10;
-  let cellSize = 50;
 
   let i = 0;
-  let max = gridWidth * gridHeight / (cellSize ** 2);
+  let max = gridWidth * gridHeight / (_cellSize ** 2);
   console.log("w: "+gridWidth + " h: " + gridHeight + " max: " + max);
 
-  for (i = 0; i < 608; i++)
+  for (i = 0; i < max; i++)
     {
       //grid.style.width = 3*cellSize + "px";
       //grid.style.height = 3*cellSize + "px";
       let cell = document.createElement("div");
       cell.className = "cell";
       //cell.style.backgroundColor = getRandomColor();
-      cell.style.backgroundColor = "#fff";
-      cell.style.width = cellSize + "px";
-      cell.style.height = cellSize + "px";
+      //cell.style.backgroundColor = "#fff";
+      cell.style.width = _cellSize + "px";
+      cell.style.height = _cellSize + "px";
       cell.onmouseover = function() {
         this.style.backgroundColor = getCellColor(this); }
       grid.appendChild(cell);
@@ -119,11 +120,30 @@ function createGrid()
 function settingsInit()
 {
     let intensityVal = document.querySelector("#intensity-form");
-
     intensityVal.onchange = function(){
       intensity = intensityVal.value / 100;
+    }
+
+    let cellSizeVal = document.querySelector("#square-size-cb");
+    cellSizeVal.onchange = function(){
+      cellSize_prev = cellSize;
+      cellSize = cellSizeVal.value;
       console.log("die");
     }
+}
+
+function buttonsInit()
+{
+  let newB = document.querySelector("#new");
+  let clearB = document.querySelector("#clear");
+   newB.onclick = function(){
+     createGrid(cellSize);
+     cellSize_prev = cellSize;
+     console.log("newb"); }
+
+   clearB.onclick = function(){
+     createGrid(cellSize_prev);
+     console.log("clear"); }
 }
 
 function randomCB()
@@ -144,4 +164,5 @@ function intensityCB()
 
 settingsInit();
 colorPickerInit();
-createGrid();
+buttonsInit();
+//createGrid(cellS);
