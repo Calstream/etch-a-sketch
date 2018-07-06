@@ -1,9 +1,9 @@
-let penColor = "#BADA55";
+let penColor = "#F5EA4D";
 let randomColor = false;
-let gradual = false;
+let gradual = true;
 let intensity = 0.3;
-let cellSize = 50;
-let cellSize_prev = 50;
+let cellSize = 0;
+let cellSize_prev = 0;
 function getRandomColor()
 {
   var letters = '0123456789ABCDEF';
@@ -33,6 +33,7 @@ function blendColors(color1, color2, percentage)
 
     console.log('valid: c1 => ' + color1 + ', c2 => ' + color2);
     color1 = color1.split("(")[1].split(")")[0].split(",");
+    //color1 = [parseInt(color1[0] + color1[1], 16), parseInt(color1[2] + color1[3], 16), parseInt(color1[4] + color1[5], 16)];
     color2 = [parseInt(color2[0] + color2[1], 16), parseInt(color2[2] + color2[3], 16), parseInt(color2[4] + color2[5], 16)];
 
     console.log('hex -> rgba: c1 => [' + color1.join(', ') + '], c2 => [' + color2.join(', ') + ']');
@@ -59,6 +60,9 @@ function getCellColor(div)
   if (gradual)
   {
     let cellColor = div.style.backgroundColor;
+    //console.log("!!!!!!!!!!!!!!!!!!!!!!!" + cellColor);
+    if (cellColor == "")
+      cellColor = "rgb(255, 255, 255)";
     if (!randomColor)
       return blendColors(cellColor, penColor, intensity);
     else
@@ -125,9 +129,9 @@ function settingsInit()
 
     let cellSizeVal = document.querySelector("#square-size-cb");
     cellSizeVal.onchange = function(){
-      if (cellSizeVal.value <= 0 )
+      if (cellSizeVal.value <= 4 )
         {
-          alert("Invalid cell size value (must be >0)");
+          alert("Invalid cell size value (must be >4)");
           return;
         }
       cellSize_prev = cellSize;
@@ -138,14 +142,25 @@ function settingsInit()
 
 function buttonsInit()
 {
+
   let newB = document.querySelector("#new");
   let clearB = document.querySelector("#clear");
    newB.onclick = function(){
+     if(cellSize == 0)
+     {
+       alert("Specify square size.");
+       return;
+     }
      createGrid(cellSize);
      cellSize_prev = cellSize;
      console.log("newb"); }
 
    clearB.onclick = function(){
+     if(cellSize == 0)
+     {
+       alert("Create a grid first.");
+       return;
+     }
      createGrid(cellSize_prev);
      console.log("clear"); }
 }
